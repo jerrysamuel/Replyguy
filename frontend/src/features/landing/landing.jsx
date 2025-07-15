@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom';
 const LandingPage = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [activeFeature, setActiveFeature] = useState(0);
-    const navigate = useNavigate();
+  const navigate = useNavigate();
 
   useEffect(() => {
     setIsVisible(true);
@@ -70,7 +70,7 @@ const LandingPage = () => {
               </span>
             </div>
             <div className="flex items-center space-x-4">
-              <button className="text-gray-700 hover:text-orange-600 px-4 py-2 rounded-lg transition-colors">
+              <button  onClick={() => navigate('/signin')}className="text-gray-700 hover:text-orange-600 px-4 py-2 rounded-lg transition-colors">
                 Login
               </button>
               <button className="bg-gradient-to-r from-orange-500 to-orange-600 text-white px-6 py-2 rounded-lg hover:shadow-lg transform hover:-translate-y-0.5 transition-all">

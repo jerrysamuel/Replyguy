@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
+
 import { Mail, Lock, Building, User, Eye, EyeOff, ArrowRight } from 'lucide-react';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 
 const Signup = () => {
 const { role } = useParams(); 
+const navigate = useNavigate();
   
   const [showPassword, setShowPassword] = useState(false);
   const [formData, setFormData] = useState({
@@ -136,9 +138,9 @@ const { role } = useParams();
                   className="absolute inset-y-0 right-0 pr-3 flex items-center text-white/40 hover:text-white/70 transition-colors duration-300"
                 >
                   {showPassword ? (
-                    <EyeOff className="w-5 h-5" />
+                    <EyeOff className="w-5 h-5 text-gray-700" />
                   ) : (
-                    <Eye className="w-5 h-5" />
+                    <Eye className="w-5 h-5 text-gray-700" />
                   )}
                 </button>
               </div>
@@ -180,25 +182,14 @@ const { role } = useParams();
               <span>Continue with Google</span>
             </button>
 
-            {/* Role Switch Demo */}
-            <div className="mt-6 p-4 bg-white/5 rounded-lg border border-white/10">
-              <p className="text-white/70 text-sm mb-2">Demo: Switch between roles</p>
-              <div className="flex gap-2">
-                <button
-                  onClick={() => window.location.reload()}
-                  className="px-3 py-1 bg-purple-500/20 text-purple-300 rounded-md text-sm hover:bg-purple-500/30 transition-colors"
-                >
-                  Change role to see different form
-                </button>
-              </div>
-            </div>
+            
           </div>
 
           {/* Footer */}
           <div className="text-center mt-6">
             <p className="text-white/50 text-sm">
               Already have an account?{' '}
-              <button className="text-orange-400 hover:text-purple-300 transition-colors duration-300 font-medium">
+              <button onClick={() => navigate('/signin')} className="text-orange-400 hover:text-purple-300 transition-colors duration-300 font-medium">
                 Sign in
               </button>
             </p>
